@@ -1,13 +1,26 @@
 
-var timeBlock = $('.time-block')
-var t9 = $('#t9')
-var t10 = $('#t10')
-var t11 = $('#t11')
-var t12 = $('#t12')
-var t13 = $('#t13')
-var t14 = $('#t14')
-var t15 = $('#t15')
-var t16 = $('#t16')
-var t17 = $('#t17')
-var time = moment().format("H");
-console.log(time)
+    var timeBlock = $('.time-block');
+    var time = moment().format("H");
+    console.log(time)
+    function hourTracker(){
+      timeBlock.each(function () {
+        var blockHour = parseInt($(this).attr('id'));
+        if (blockHour < time) {
+          console.log('less')
+          $(this).addClass('past');
+          $(this).removeClass('future');
+          $(this).removeClass('present');
+        } else if (blockHour == time) {
+          console.log('now')
+          $(this).removeClass('past');
+          $(this).addClass('present');
+          $(this).removeClass('future');
+        } else {
+          console.log('future')
+          $(this).removeClass('present');
+          $(this).removeClass('past');
+          $(this).addClass('future');
+        }
+      });
+    }
+    hourTracker()
