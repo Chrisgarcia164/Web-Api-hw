@@ -4,7 +4,7 @@
     console.log(time)
     function hourTracker(){
       timeBlock.each(function () {
-        var blockHour = parseInt($(this).attr('id'));
+        var blockHour = parseInt($(this).attr('time'));
         if (blockHour < time) {
           console.log('less')
           $(this).addClass('past');
