@@ -15,4 +15,8 @@
       });
     }
     hourTracker()
-  
+    $('.saveBtn').on('click', function (){
+      var blockHour = $(this).parent().attr('time')
+      var todo = $(this).siblings('.description').val()
+      localStorage.setItem(blockHour, todo)
+    })
